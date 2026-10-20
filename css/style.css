@@ -1,0 +1,1511 @@
+/* =========================================
+   CONFIGURACIÓN GENERAL
+========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+    --background: #080b10;
+    --background-light: #0d1117;
+    --card: #11161e;
+
+    --text: #f1f5f9;
+    --text-muted: #8993a4;
+
+    --primary: #00e676;
+    --primary-dark: #00b85c;
+
+    --border: rgba(255, 255, 255, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--background);
+    color: var(--text);
+
+    font-family: 'Inter', sans-serif;
+
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.header {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    height: 75px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 7%;
+
+    background: rgba(8, 11, 16, 0.85);
+
+    backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid var(--border);
+
+    z-index: 1000;
+}
+
+
+/* LOGO */
+
+.logo,
+.footer-logo {
+    font-family: 'Space Mono', monospace;
+
+    font-size: 1.4rem;
+
+    font-weight: 700;
+}
+
+.logo span,
+.footer-logo span {
+    color: var(--primary);
+}
+
+
+/* NAVBAR */
+
+.navbar {
+    display: flex;
+    gap: 35px;
+}
+
+.navbar a {
+    color: var(--text-muted);
+
+    font-size: 0.9rem;
+
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    color: var(--primary);
+}
+
+
+/* BOTÓN */
+
+.btn-header,
+.btn-primary {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 12px 20px;
+
+    border-radius: 6px;
+
+    background: var(--primary);
+
+    color: #06100a;
+
+    font-weight: 700;
+
+    transition: 0.3s;
+}
+
+.btn-header:hover,
+.btn-primary:hover {
+    background: #63ffa1;
+
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    display: inline-flex;
+
+    padding: 12px 20px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 6px;
+
+    color: var(--text);
+
+    transition: 0.3s;
+}
+
+.btn-secondary:hover {
+    border-color: var(--primary);
+
+    color: var(--primary);
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+    min-height: 100vh;
+
+    padding: 140px 7% 80px;
+
+    display: grid;
+
+    grid-template-columns: 1.2fr 0.8fr;
+
+    align-items: center;
+
+    gap: 70px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* EFECTO DE FONDO */
+
+.hero::before {
+    content: '';
+
+    position: absolute;
+
+    width: 600px;
+    height: 600px;
+
+    background: var(--primary);
+
+    opacity: 0.06;
+
+    filter: blur(120px);
+
+    border-radius: 50%;
+
+    left: -250px;
+    top: 100px;
+
+    pointer-events: none;
+}
+
+
+/* HERO TEXT */
+
+.hero-tag,
+.section-tag {
+    font-family: 'Space Mono', monospace;
+
+    color: var(--primary);
+
+    font-size: 0.75rem;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(3rem, 6vw, 5.5rem);
+
+    line-height: 1.05;
+
+    letter-spacing: -4px;
+
+    margin-bottom: 30px;
+}
+
+.hero h1 span,
+.section-title span,
+.join h2 span {
+    color: var(--primary);
+}
+
+.hero-description {
+    max-width: 650px;
+
+    color: var(--text-muted);
+
+    font-size: 1.05rem;
+
+    margin-bottom: 35px;
+}
+
+.hero-buttons {
+    display: flex;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+
+/* =========================================
+   TERMINAL
+========================================= */
+
+.hero-terminal {
+    background: #050709;
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+}
+
+.terminal-header {
+    height: 38px;
+
+    background: #11151b;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding-left: 15px;
+}
+
+.terminal-header span {
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+
+    background: #555;
+}
+
+.terminal-body {
+    padding: 30px;
+
+    font-family: 'Space Mono', monospace;
+
+    font-size: 0.8rem;
+
+    line-height: 2;
+}
+
+.terminal-green {
+    color: var(--primary);
+}
+
+.terminal-output {
+    color: #9aa4b2;
+}
+
+.terminal-success {
+    color: var(--primary);
+
+    margin-top: 10px;
+}
+
+.cursor {
+    color: var(--primary);
+
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+
+/* =========================================
+   SECCIONES
+========================================= */
+
+.section {
+    padding: 120px 7%;
+}
+
+.section-title {
+    margin-bottom: 60px;
+}
+
+.section-title h2 {
+    font-size: clamp(2.2rem, 4vw, 4rem);
+
+    line-height: 1.1;
+
+    letter-spacing: -2px;
+}
+
+.section-title.center {
+    text-align: center;
+}
+
+.section-title.center > p:last-child {
+    max-width: 600px;
+
+    margin: 20px auto 0;
+
+    color: var(--text-muted);
+}
+
+
+/* =========================================
+   SOBRE NOSOTROS
+========================================= */
+
+.about {
+    background: var(--background-light);
+}
+
+.about-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 80px;
+
+    align-items: center;
+}
+
+.about-text {
+    color: var(--text-muted);
+
+    font-size: 1.05rem;
+}
+
+.about-text p + p {
+    margin-top: 20px;
+}
+
+.about-card {
+    padding: 40px;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+}
+
+.about-icon {
+    width: 55px;
+    height: 55px;
+
+    display: grid;
+    place-items: center;
+
+    background: rgba(0, 230, 118, 0.1);
+
+    color: var(--primary);
+
+    border-radius: 8px;
+
+    margin-bottom: 25px;
+
+    font-size: 1.4rem;
+}
+
+.about-card h3 {
+    margin-bottom: 10px;
+}
+
+.about-card p {
+    color: var(--text-muted);
+}
+
+
+/* =========================================
+   ENFOQUE
+========================================= */
+
+.focus-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 18px;
+}
+
+.focus-card {
+    position: relative;
+
+    padding: 35px 28px;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+
+    transition: 0.3s;
+}
+
+.focus-card:hover {
+    transform: translateY(-7px);
+
+    border-color: rgba(0, 230, 118, 0.4);
+}
+
+.focus-card i {
+    color: var(--primary);
+
+    font-size: 1.7rem;
+
+    margin: 30px 0 20px;
+}
+
+.focus-card h3 {
+    margin-bottom: 10px;
+}
+
+.focus-card p {
+    color: var(--text-muted);
+
+    font-size: 0.9rem;
+}
+
+.card-number {
+    position: absolute;
+
+    top: 20px;
+    right: 20px;
+
+    font-family: 'Space Mono', monospace;
+
+    color: #353d48;
+
+    font-size: 0.8rem;
+}
+
+
+/* =========================================
+   PROYECTOS
+========================================= */
+
+.projects {
+    background: var(--background-light);
+}
+
+.projects-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.project-card {
+    overflow: hidden;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    transition: 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-image {
+    height: 200px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 230, 118, 0.08),
+            transparent
+        );
+
+    display: grid;
+
+    place-items: center;
+}
+
+.project-placeholder {
+    font-size: 3rem;
+
+    color: var(--primary);
+
+    opacity: 0.7;
+}
+
+.project-content {
+    padding: 28px;
+}
+
+.project-status {
+    font-family: 'Space Mono', monospace;
+
+    font-size: 0.65rem;
+
+    color: var(--primary);
+
+    letter-spacing: 1px;
+}
+
+.project-status.finished {
+    color: #6ea8fe;
+}
+
+.project-content h3 {
+    margin: 12px 0 10px;
+
+    font-size: 1.3rem;
+}
+
+.project-content p {
+    color: var(--text-muted);
+
+    font-size: 0.9rem;
+}
+
+.technologies {
+    display: flex;
+
+    gap: 8px;
+
+    margin-top: 20px;
+}
+
+.technologies span {
+    padding: 5px 9px;
+
+    background: #181e27;
+
+    border-radius: 4px;
+
+    font-size: 0.7rem;
+
+    font-family: 'Space Mono', monospace;
+}
+
+
+/* =========================================
+   INTEGRANTES
+========================================= */
+
+.members-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+.member-card {
+    text-align: center;
+
+    padding: 30px 20px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+
+    background: var(--card);
+
+    transition: 0.3s;
+}
+
+.member-card:hover {
+    border-color: rgba(0, 230, 118, 0.3);
+}
+
+.member-photo {
+    width: 100px;
+    height: 100px;
+
+    margin: 0 auto 20px;
+
+    border-radius: 50%;
+
+    background: #1a2029;
+
+    display: grid;
+
+    place-items: center;
+
+    color: #626d7d;
+
+    font-size: 2rem;
+}
+
+.member-card h3 {
+    font-size: 1rem;
+}
+
+.member-card p {
+    color: var(--primary);
+
+    font-size: 0.8rem;
+
+    margin-top: 5px;
+}
+
+
+/* =========================================
+   UNIRSE
+========================================= */
+
+.join {
+    padding: 120px 7%;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(0, 230, 118, 0.08),
+            transparent 60%
+        );
+
+    border-top: 1px solid var(--border);
+}
+
+.join-content {
+    max-width: 750px;
+
+    margin: auto;
+}
+
+.join h2 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+
+    line-height: 1.05;
+
+    letter-spacing: -3px;
+
+    margin-bottom: 25px;
+}
+
+.join p:not(.section-tag) {
+    color: var(--text-muted);
+
+    max-width: 600px;
+
+    margin: 0 auto 30px;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+    padding: 50px 7%;
+
+    border-top: 1px solid var(--border);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    color: var(--text-muted);
+}
+
+.socials {
+    display: flex;
+
+    gap: 15px;
+}
+
+.socials a {
+    width: 38px;
+    height: 38px;
+
+    display: grid;
+
+    place-items: center;
+
+    border: 1px solid var(--border);
+
+    border-radius: 6px;
+
+    transition: 0.3s;
+}
+
+.socials a:hover {
+    color: var(--primary);
+
+    border-color: var(--primary);
+}
+
+.copyright {
+    font-size: 0.75rem;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-terminal {
+        max-width: 700px;
+    }
+
+    .focus-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .members-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .header {
+        padding: 0 5%;
+    }
+
+    .navbar {
+        display: none;
+    }
+
+    .btn-header {
+        display: none;
+    }
+
+    .hero {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+
+    .section {
+        padding: 80px 5%;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+    }
+
+    .focus-grid,
+    .projects-grid,
+    .members-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer {
+        flex-direction: column;
+
+        text-align: center;
+    }
+}
+/* =========================================
+   LOGIN — usa las mismas variables que style.css
+   Agregar este bloque AL FINAL de css/style.css
+   (o enlazar este archivo aparte después de style.css)
+========================================= */
+
+.login-container {
+    min-height: 100vh;
+
+    display: grid;
+    place-items: center;
+
+    padding: 40px 5%;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+/* mismo halo difuminado que usa el .hero */
+.login-container::before {
+    content: '';
+
+    position: absolute;
+
+    width: 600px;
+    height: 600px;
+
+    background: var(--primary);
+
+    opacity: 0.06;
+
+    filter: blur(120px);
+
+    border-radius: 50%;
+
+    top: -150px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    pointer-events: none;
+}
+
+.login-box {
+    width: 100%;
+    max-width: 400px;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    padding: 45px 40px;
+
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+
+    position: relative;
+
+    z-index: 1;
+}
+
+.login-box h1 {
+    font-family: 'Space Mono', monospace;
+
+    font-size: 1.8rem;
+    font-weight: 700;
+
+    color: var(--text);
+
+    text-align: center;
+}
+
+.login-box h1::after {
+    content: '_';
+
+    color: var(--primary);
+
+    animation: blink 1s infinite;
+}
+
+.login-box > p {
+    text-align: center;
+
+    color: var(--text-muted);
+
+    font-size: 0.85rem;
+
+    margin-bottom: 35px;
+}
+
+.login-box form {
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+.login-box label {
+    display: block;
+
+    font-family: 'Space Mono', monospace;
+
+    font-size: 0.7rem;
+
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    color: var(--primary);
+
+    margin-bottom: 8px;
+}
+
+.login-box input {
+    width: 100%;
+
+    padding: 12px 14px;
+
+    background: var(--background);
+
+    border: 1px solid var(--border);
+
+    border-radius: 6px;
+
+    color: var(--text);
+
+    font-family: 'Inter', sans-serif;
+
+    font-size: 0.95rem;
+
+    transition: 0.3s;
+}
+
+.login-box input:focus {
+    outline: none;
+
+    border-color: var(--primary);
+
+    box-shadow: 0 0 0 3px rgba(0, 230, 118, 0.12);
+}
+
+.login-box input::placeholder {
+    color: #4a5364;
+}
+
+.login-box button {
+    width: 100%;
+
+    padding: 13px 20px;
+
+    margin-top: 10px;
+
+    border: none;
+    border-radius: 6px;
+
+    background: var(--primary);
+
+    color: #06100a;
+
+    font-weight: 700;
+    font-size: 0.95rem;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.login-box button:hover {
+    background: #63ffa1;
+
+    transform: translateY(-2px);
+}
+
+/* opcional: mensaje de error, por si luego lo agregás desde procesar_login.php */
+.login-error {
+    background: rgba(255, 82, 82, 0.1);
+
+    border: 1px solid rgba(255, 82, 82, 0.3);
+
+    color: #ff8080;
+
+    font-size: 0.85rem;
+
+    padding: 10px 14px;
+
+    border-radius: 6px;
+
+    margin-bottom: 20px;
+
+    text-align: center;
+}
+
+@media (max-width: 480px) {
+    .login-box {
+        padding: 35px 25px;
+    }
+}
+/* =========================================
+   INTEGRANTES — extras (descripción y estado vacío)
+========================================= */
+
+.member-description {
+    color: var(--text-muted);
+
+    font-size: 0.85rem;
+
+    margin-top: 12px;
+}
+
+.members-empty {
+    grid-column: 1 / -1;
+
+    text-align: center;
+
+    color: var(--text-muted);
+
+    padding: 40px 0;
+}
+
+.navbar a.active {
+    color: var(--primary);
+}
+
+
+/* =========================================
+   ADMIN — panel de administración
+========================================= */
+
+.admin-tag {
+    font-family: 'Space Mono', monospace;
+
+    font-size: 0.6rem;
+
+    color: var(--text-muted);
+
+    border: 1px solid var(--border);
+
+    padding: 3px 7px;
+
+    border-radius: 4px;
+
+    margin-left: 8px;
+
+    vertical-align: middle;
+}
+
+.btn-logout {
+    background: transparent;
+
+    border: 1px solid var(--border);
+
+    color: var(--text);
+}
+
+.btn-logout:hover {
+    background: transparent;
+
+    border-color: #ff5252;
+
+    color: #ff8080;
+
+    transform: none;
+}
+
+.admin-main {
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 160px 7% 100px;
+}
+
+.admin-welcome {
+    margin-bottom: 60px;
+}
+
+.admin-welcome h1 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+
+    letter-spacing: -2px;
+
+    margin: 10px 0 18px;
+}
+
+.admin-welcome h1 span {
+    color: var(--primary);
+}
+
+.admin-role {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: var(--text-muted);
+
+    font-family: 'Space Mono', monospace;
+
+    font-size: 0.8rem;
+
+    border: 1px solid var(--border);
+
+    padding: 8px 14px;
+
+    border-radius: 6px;
+}
+
+.admin-role i {
+    color: var(--primary);
+}
+
+.admin-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 22px;
+}
+
+.admin-card {
+    padding: 32px;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    transition: 0.3s;
+}
+
+.admin-card:hover {
+    transform: translateY(-5px);
+
+    border-color: rgba(0, 230, 118, 0.3);
+}
+
+.admin-card h3 {
+    margin-bottom: 10px;
+}
+
+.admin-card p {
+    color: var(--text-muted);
+
+    font-size: 0.9rem;
+
+    margin-bottom: 20px;
+}
+
+.admin-card-link {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: var(--primary);
+
+    font-size: 0.85rem;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.admin-card-link:hover {
+    gap: 12px;
+}
+
+@media (max-width: 900px) {
+    .admin-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* Botón volver al inicio - login.php */
+.back-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 13px 20px;
+    margin-top: 10px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+.back-link:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    transform: translateY(-2px);
+}
+/* ADMIN — formulario y tabla de proyectos */
+
+.admin-form-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 35px 40px;
+    margin-bottom: 50px;
+}
+
+.admin-form-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.admin-form-card label {
+    display: block;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 6px;
+}
+
+.admin-form-card input[type="text"],
+.admin-form-card input[type="file"],
+.admin-form-card textarea,
+.admin-form-card select {
+    width: 100%;
+    padding: 12px 14px;
+    background: var(--background);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+}
+
+.admin-form-card textarea {
+    resize: vertical;
+}
+
+.admin-form-card input:focus,
+.admin-form-card textarea:focus,
+.admin-form-card select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(0, 230, 118, 0.12);
+}
+
+.admin-form-card button {
+    width: fit-content;
+    padding: 13px 28px;
+    border: none;
+    border-radius: 6px;
+    background: var(--primary);
+    color: #06100a;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.admin-form-card button:hover {
+    background: #63ffa1;
+    transform: translateY(-2px);
+}
+
+.admin-list-title {
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+.admin-table th {
+    color: var(--text-muted);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.admin-table tr:last-child td {
+    border-bottom: none;
+}
+
+.admin-table-thumb {
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.admin-table-delete {
+    color: var(--text-muted);
+    transition: 0.3s;
+}
+
+.admin-table-delete:hover {
+    color: #ff5252;
+}
+
+.text-muted {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+
+/* mensaje de éxito (se usaba en login.php y admin pero no existía) */
+.login-success {
+    background: rgba(0, 230, 118, 0.1);
+    border: 1px solid rgba(0, 230, 118, 0.3);
+    color: var(--primary);
+    font-size: 0.85rem;
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* avisos dentro del panel (reemplaza los style="" inline) */
+.flash {
+    margin-bottom: 30px;
+}
+
+/* tecnologías: que bajen de línea si son muchas */
+.technologies {
+    flex-wrap: wrap;
+}
+
+/* botón hamburguesa (oculto en escritorio) */
+.menu-toggle {
+    display: none;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/* formularios del admin */
+.admin-form-card input[type="password"] {
+    width: 100%;
+    padding: 12px 14px;
+    background: var(--background);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+}
+
+.admin-form-card input[type="password"]:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(0, 230, 118, 0.12);
+}
+
+.admin-form-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* tabla del admin */
+.admin-table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+}
+
+.admin-table-wrap .admin-table {
+    border: none;
+    min-width: 520px;
+}
+
+.admin-table-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.admin-table-actions form {
+    margin: 0;
+}
+
+.admin-table-edit {
+    color: var(--text-muted);
+    transition: 0.3s;
+}
+
+.admin-table-edit:hover {
+    color: var(--primary);
+}
+
+button.admin-table-delete {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+/* móvil: menú desplegable y botón de cerrar sesión visible */
+@media (max-width: 700px) {
+
+    .menu-toggle {
+        display: grid;
+        place-items: center;
+        margin-left: auto;
+    }
+
+    .navbar {
+        display: none;
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        gap: 0;
+        padding: 6px 5%;
+        background: rgba(8, 11, 16, 0.97);
+        border-bottom: 1px solid var(--border);
+    }
+
+    .navbar.open {
+        display: flex;
+    }
+
+    .navbar a {
+        padding: 14px 0;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .navbar a:last-child {
+        border-bottom: none;
+    }
+
+    /* antes .btn-header se ocultaba también en el admin y no se podía cerrar sesión */
+    .btn-logout {
+        display: inline-flex;
+        margin-left: 12px;
+        padding: 10px 12px;
+    }
+
+    .btn-logout .btn-text {
+        display: none;
+    }
+
+    .admin-main {
+        padding-top: 130px;
+    }
+}
