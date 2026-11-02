@@ -1,0 +1,6 @@
+# Credenciales y dependencias: nunca al repositorio
+config_mail.php
+conexion.php
+vendor/
+uploads/proyectos/*
+!uploads/proyectos/.htaccess
