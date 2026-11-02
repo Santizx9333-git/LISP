@@ -300,70 +300,93 @@ $resultadoProyectos = $conn->query($sqlProyectos);
 
             </div>
 
-            <div class="projects-grid">
+            <?php if ($resultadoProyectos && $resultadoProyectos->num_rows > 0): ?>
 
-                <?php if ($resultadoProyectos && $resultadoProyectos->num_rows > 0): ?>
+                <div class="carousel" data-carousel data-autoplay="4500" data-modal="projectModal">
 
-                    <?php while ($proyecto = $resultadoProyectos->fetch_assoc()): ?>
+                    <div class="carousel-stage">
 
-                        <?php
-                        $esFinalizado = ($proyecto['estado'] === 'Finalizado');
-                        $etiquetaEstado = $esFinalizado ? 'FINALIZADO' : 'EN DESARROLLO';
+                        <button class="carousel-btn prev" type="button" aria-label="Proyecto anterior">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
 
-                        $listaTecnologias = array_filter(array_map('trim', explode(',', $proyecto['tecnologias'] ?? '')));
-                        ?>
+                        <div class="carousel-viewport">
 
-                        <article class="project-card">
+                            <div class="carousel-track">
 
-                            <div class="project-image">
-                                <?php if (!empty($proyecto['imagen'])): ?>
-                                    <img src="<?= htmlspecialchars($proyecto['imagen']) ?>"
-                                         alt="<?= htmlspecialchars($proyecto['nombre']) ?>"
-                                         style="width:100%; height:100%; object-fit:cover;">
-                                <?php else: ?>
-                                    <div class="project-placeholder">
-                                        <i class="fa-solid fa-code"></i>
-                                    </div>
-                                <?php endif; ?>
+                                <?php while ($proyecto = $resultadoProyectos->fetch_assoc()): ?>
+
+                                    <?php
+                                    $esFinalizado = ($proyecto['estado'] === 'Finalizado');
+                                    $etiquetaEstado = $esFinalizado ? 'FINALIZADO' : 'EN DESARROLLO';
+
+                                    $listaTecnologias = array_filter(array_map('trim', explode(',', $proyecto['tecnologias'] ?? '')));
+                                    ?>
+
+                                    <article class="project-card carousel-slide">
+
+                                        <div class="project-image">
+                                            <?php if (!empty($proyecto['imagen'])): ?>
+                                                <img src="<?= htmlspecialchars($proyecto['imagen']) ?>"
+                                                     alt="<?= htmlspecialchars($proyecto['nombre']) ?>"
+                                                     draggable="false"
+                                                     style="width:100%; height:100%; object-fit:cover;">
+                                            <?php else: ?>
+                                                <div class="project-placeholder">
+                                                    <i class="fa-solid fa-code"></i>
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+
+                                        <div class="project-content">
+
+                                            <span class="project-status<?= $esFinalizado ? ' finished' : '' ?>">
+                                                <?= htmlspecialchars($etiquetaEstado) ?>
+                                            </span>
+
+                                            <h3>
+                                                <?= htmlspecialchars($proyecto['nombre']) ?>
+                                            </h3>
+
+                                            <p>
+                                                <?= htmlspecialchars($proyecto['descripcion'] ?? '') ?>
+                                            </p>
+
+                                            <?php if (!empty($listaTecnologias)): ?>
+                                                <div class="technologies">
+                                                    <?php foreach ($listaTecnologias as $tecnologia): ?>
+                                                        <span><?= htmlspecialchars($tecnologia) ?></span>
+                                                    <?php endforeach; ?>
+                                                </div>
+                                            <?php endif; ?>
+
+                                        </div>
+
+                                    </article>
+
+                                <?php endwhile; ?>
+
                             </div>
 
-                            <div class="project-content">
+                        </div>
 
-                                <span class="project-status<?= $esFinalizado ? ' finished' : '' ?>">
-                                    <?= htmlspecialchars($etiquetaEstado) ?>
-                                </span>
+                        <button class="carousel-btn next" type="button" aria-label="Proyecto siguiente">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
 
-                                <h3>
-                                    <?= htmlspecialchars($proyecto['nombre']) ?>
-                                </h3>
+                    </div>
 
-                                <p>
-                                    <?= htmlspecialchars($proyecto['descripcion'] ?? '') ?>
-                                </p>
+                    <div class="carousel-dots"></div>
 
-                                <?php if (!empty($listaTecnologias)): ?>
-                                    <div class="technologies">
-                                        <?php foreach ($listaTecnologias as $tecnologia): ?>
-                                            <span><?= htmlspecialchars($tecnologia) ?></span>
-                                        <?php endforeach; ?>
-                                    </div>
-                                <?php endif; ?>
+                </div>
 
-                            </div>
+            <?php else: ?>
 
-                        </article>
+                <p class="members-empty">
+                    Todavía no hay proyectos cargados.
+                </p>
 
-                    <?php endwhile; ?>
-
-                <?php else: ?>
-
-                    <p class="members-empty">
-                        Todavía no hay proyectos cargados.
-                    </p>
-
-                <?php endif; ?>
-
-            </div>
+            <?php endif; ?>
 
         </section>
 
@@ -388,42 +411,68 @@ $resultadoProyectos = $conn->query($sqlProyectos);
             </div>
 
 
-            <div class="members-grid">
+            <?php if ($resultado_integrantes && $resultado_integrantes->num_rows > 0): ?>
 
-                <?php while ($integrante = $resultado_integrantes->fetch_assoc()): ?>
+                <div class="carousel carousel-members" data-carousel data-autoplay="3500">
 
-                    <article class="member-card">
+                    <div class="carousel-stage">
 
-                        <div class="member-photo">
-                            <i class="fa-solid fa-user"></i>
+                        <button class="carousel-btn prev" type="button" aria-label="Integrante anterior">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+
+                        <div class="carousel-viewport">
+
+                            <div class="carousel-track">
+
+                                <?php while ($integrante = $resultado_integrantes->fetch_assoc()): ?>
+
+                                    <article class="member-card carousel-slide">
+
+                                        <div class="member-photo">
+                                            <i class="fa-solid fa-user"></i>
+                                        </div>
+
+                                        <h3>
+                                            <?= htmlspecialchars($integrante['nombre']) ?>
+                                            <?= htmlspecialchars($integrante['apellido']) ?>
+                                        </h3>
+
+                                        <p>
+                                            <?= htmlspecialchars($integrante['rol'] ?? '') ?>
+                                        </p>
+
+                                        <?php if (!empty($integrante['descripcion'])): ?>
+                                            <p class="member-description">
+                                                <?= htmlspecialchars($integrante['descripcion']) ?>
+                                            </p>
+                                        <?php endif; ?>
+
+                                    </article>
+
+                                <?php endwhile; ?>
+
+                            </div>
+
                         </div>
 
-                        <h3>
-                            <?= htmlspecialchars($integrante['nombre']) ?>
-                            <?= htmlspecialchars($integrante['apellido']) ?>
-                        </h3>
+                        <button class="carousel-btn next" type="button" aria-label="Integrante siguiente">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
 
-                        <p>
-                            <?= htmlspecialchars($integrante['rol'] ?? '') ?>
-                        </p>
+                    </div>
 
-                        <?php if (!empty($integrante['descripcion'])): ?>
-                            <p class="member-description">
-                                <?= htmlspecialchars($integrante['descripcion']) ?>
-                            </p>
-                        <?php endif; ?>
+                    <div class="carousel-dots"></div>
 
-                    </article>
+                </div>
 
-                <?php endwhile; ?>
+            <?php else: ?>
 
-                <?php if ($resultado_integrantes->num_rows === 0): ?>
-                    <p class="members-empty">
-                        Todavía no hay integrantes cargados.
-                    </p>
-                <?php endif; ?>
+                <p class="members-empty">
+                    Todavía no hay integrantes cargados.
+                </p>
 
-            </div>
+            <?php endif; ?>
 
         </section>
 
@@ -495,6 +544,41 @@ $resultadoProyectos = $conn->query($sqlProyectos);
 
     </footer>
 
+    <!-- ================= MODAL DE PROYECTO ================= -->
+
+    <div class="project-modal" id="projectModal" aria-hidden="true">
+
+        <div class="project-modal-backdrop" data-close></div>
+
+        <div class="project-modal-dialog"
+             role="dialog"
+             aria-modal="true"
+             aria-labelledby="pmTitle">
+
+            <button class="project-modal-close" type="button" data-close aria-label="Cerrar">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="project-modal-image" id="pmImage"></div>
+
+            <div class="project-modal-body">
+
+                <span class="project-status" id="pmStatus"></span>
+
+                <h3 id="pmTitle"></h3>
+
+                <p id="pmDesc"></p>
+
+                <div class="technologies" id="pmTech"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
     <script src="js/menu.js" defer></script>
+    <script src="js/carrusel.js" defer></script>
 </body>
 </html>
