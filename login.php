@@ -16,6 +16,8 @@ if (isset($_SESSION['usuario'])) {
 
     <title>Iniciar sesión | LISP</title>
 
+    <link rel="icon" href="/img/favicon.png">
+
     <link rel="stylesheet" href="css/style.css">
 
     <!-- Iconos -->

@@ -15,6 +15,8 @@ $mensajeError = (($_GET['error'] ?? '') === 'permiso')
 
     <title>Panel | LISP</title>
 
+    <link rel="icon" href="/img/favicon.png">
+
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">

@@ -12,6 +12,8 @@ $resultado = $conn->query($sql);
 
     <title>Integrantes | LISP</title>
 
+    <link rel="icon" href="/img/favicon.png">
+
     <link rel="stylesheet" href="css/style.css">
 
     <!-- Iconos -->

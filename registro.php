@@ -30,6 +30,8 @@ $mensajeError = $errores[$error] ?? null;
 
     <title>Crear cuenta | LISP</title>
 
+    <link rel="icon" href="/img/favicon.png">
+
     <link rel="stylesheet" href="css/style.css">
 
     <link rel="stylesheet"
